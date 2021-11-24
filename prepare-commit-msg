@@ -1,0 +1,74 @@
+#!/usr/bin/python3
+
+import sys
+
+from os.path import dirname, abspath, exists, realpath
+from os.path import join as join_path
+from time import sleep
+import re
+import sys
+import re
+import textwrap
+from subprocess import check_output
+
+try:
+    from git import Repo, Commit
+except ImportError:
+    print("[FAILURE]: gitpython not installed. pip3 install gitpython")
+    exit(1)
+
+
+def GetGitBranchName():
+    branch = check_output(["git", "symbolic-ref", "--short", "HEAD"]).strip().decode("utf-8")
+    return branch
+
+
+def GetIssueNumberFromBranchName(branch_name):
+    regex_for_branch_name = re.compile(r"(\/)(\d+)\/")
+    regex_result = re.search(regex_for_branch_name, branch_name)
+    if regex_result:
+        issue_number = regex_result.group(2)
+        return issue_number
+    else:
+        return None
+
+
+def AppendIssueNumberToCommitMessageFile(issue_number, commit_msg_filepath):
+
+    if issue_number:
+        cb_issue_url = (
+                "https://xxxxxxxx/cb/issue/" + issue_number
+        )
+        cb_issue = "\nIssue: CB-#{}\n{}\n\n".format(issue_number, cb_issue_url)
+    else: 
+        cb_issue = "\nIssue: none"
+
+
+    with open(commit_msg_filepath, "r+") as f:
+        msg = f.readlines()
+        if(msg):
+            msg_first = msg[0]
+        else:
+            msg_first = "" 
+        f.seek(0, 0)
+        f.write(
+                "{}{}{}".format(
+                    msg_first,
+                    cb_issue,
+                    "".join(msg[1:]),
+                )
+        )
+
+
+if __name__ == "__main__":
+    commit_msg_filepath = sys.argv[1]
+    commit_type = sys.argv[2] if len(sys.argv) > 2 else ""
+
+    #execute only for message commit type. For amend, merge, squash simply exit
+    if commit_type not in ["", "message"]:
+        sys.exit(0)
+
+    
+    branch_name = GetGitBranchName()
+    issue_number = GetIssueNumberFromBranchName(branch_name)
+    AppendIssueNumberToCommitMessageFile(issue_number, commit_msg_filepath)
