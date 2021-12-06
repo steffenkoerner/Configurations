@@ -7,6 +7,7 @@ git config --global alias.st status
 git config --global alias.p push
 git config --global alias.pl pull
 
+git config --global alias.aa 'add --all'
 git config --global alias.cm 'checkout master'
 git config --global alias.cb 'checkout -b'
 git config --global alias.com 'commit -m'
