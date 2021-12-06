@@ -1,3 +1,8 @@
+# Configurations
+This repository contains all the important configurations of tools like IDE, shell, git
+
+It's used to synchronize configurations with multiple machines
+
 # git hooks
 
 This folder contains some useful githooks to automatically add the item number of ticket to the commmit message.
