@@ -11,7 +11,7 @@ git config --global alias.fpush 'push --force-with-lease'
 git config --global alias.last 'log -1 HEAD'
 git config --global alias.unstage 'reset HEAD --'
 git config --global alias.search '!git rev-list --all | xargs git grep -F'
-git config --global alias.lola 'log --graph --decorate --pretty=oneline --abbrev-commit --all'
+git config --global alias.lol 'log --graph --decorate --pretty=oneline --abbrev-commit'
 git config --global alias.lola 'log --graph --decorate --pretty=oneline --abbrev-commit --all'
 git config --global alias.lolamore 'log --graph --pretty="format:%C(auto)%h %d %s %C(green)%an%C(bold blue) %ad" --all --date=relative'
 
