@@ -1,3 +1,5 @@
+#!/usr/bin/zsh
+
 sudo apt install silversearcher-ag
 sudo apt install tree
 sudo apt install htop

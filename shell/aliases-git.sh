@@ -1,4 +1,4 @@
-#!/usr/bin/fish
+#!/usr/bin/zsh
 
 git config --global alias.co checkout
 git config --global alias.br branch
