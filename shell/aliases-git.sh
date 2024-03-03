@@ -21,3 +21,6 @@ git config --global alias.lola 'log --graph --decorate --pretty=oneline --abbrev
 git config --global alias.lolamore 'log --graph --pretty="format:%C(auto)%h %d %s %C(green)%an%C(bold blue) %ad" --all --date=relative'
 
 git config --global core.editor 'vim'
+
+git config --global push.autosetupremote true
+git config --global diff.algorithm histogram
