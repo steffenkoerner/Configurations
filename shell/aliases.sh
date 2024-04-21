@@ -16,6 +16,7 @@ alias ~='cd ~'
 
 alias install="sudo apt-get install"
 alias remove="sudo apt-get remove --purge"
+alias reload='source ~/.zshrc'
 
 alias -s {txt,md,cs,ts,html}=code
 
