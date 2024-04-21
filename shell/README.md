@@ -16,3 +16,7 @@ Use the alias plugin from zsh to list all aliases
 acs: show all aliases by group
 
 Use the plugin fuzzy search fzf
+- This makes your history fuzzy searchable by Ctrl+R and shows multiple solutions instead of the standard search:
+  - https://github.com/junegunn/fzf   
+- Highlights the command you type and show by color if its valid:
+  - https://github.com/zsh-users/zsh-syntax-highlighting/tree/master
