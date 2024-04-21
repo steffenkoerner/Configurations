@@ -20,3 +20,5 @@ Use the plugin fuzzy search fzf
   - https://github.com/junegunn/fzf   
 - Highlights the command you type and show by color if its valid:
   - https://github.com/zsh-users/zsh-syntax-highlighting/tree/master
+- Add zsh completions:
+  - https://github.com/zsh-users/zsh-completions?utm_source=substack&utm_medium=email 
